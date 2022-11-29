@@ -2,7 +2,6 @@ package APIHelper;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import io.qameta.allure.Step;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;

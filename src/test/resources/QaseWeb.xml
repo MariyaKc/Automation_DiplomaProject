@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name=" Sign Up tests set"  >
+    <test name=" Sign Up tests set" >
         <classes>
             <class name="WEB_Tests.SignUp_Test"/>
         </classes>
@@ -18,6 +18,12 @@
     <test name=" Dialog window tests set" >
         <classes>
             <class name="WEB_Tests.DialogWindow_Test"/>
+        </classes>
+    </test>
+
+    <test name=" Pop Up tests set" >
+        <classes>
+            <class name="WEB_Tests.PopUpFrame_Test"/>
         </classes>
     </test>
 

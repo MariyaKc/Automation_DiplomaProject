@@ -13,7 +13,7 @@ public class NavigationTab extends BasePage {
     }
 
     public NavigationTab clickNavigationItem(String linkText) {
-        log.debug("click navigation item");
+        log.debug("Click navigation item");
         getNavigationLink(linkText).click();
         return this;
     }
