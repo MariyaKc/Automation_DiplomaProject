@@ -3,25 +3,25 @@
 
 <suite name="QASE Web tests" thread-count="2" parallel="tests">
 
-    <test name=" Login tests set" enabled="false" >
+    <test name=" Login tests set"  >
         <classes>
             <class name="WEB_Tests.Login_Test"/>
         </classes>
     </test>
 
-    <test name=" Sign Up tests set" enabled="false">
+    <test name=" Sign Up tests set">
         <classes>
             <class name="WEB_Tests.SignUp_Test"/>
         </classes>
     </test>
 
-    <test name=" Dialog window tests set" enabled="false" >
+    <test name=" Dialog window tests set"  >
         <classes>
             <class name="WEB_Tests.DialogWindow_Test"/>
         </classes>
     </test>
 
-    <test name=" Pop Up tests set" enabled="false" >
+    <test name=" Pop Up tests set" >
         <classes>
             <class name="WEB_Tests.PopUpFrame_Test"/>
         </classes>
