@@ -67,12 +67,6 @@ public abstract class BasePage {
         return driver.getCurrentUrl();
     }
 
-    protected void enter(WebElement webElement, String enterData) {
-        log.debug("I'm enter :: " + enterData + ", by web element :: " + webElement);
-        webElement.clear();
-        webElement.sendKeys(enterData);
-    }
-
     protected void enter(By locator, CharSequence... enterData) {
         String os = System.getProperty("os.name");
         if (os.contains("Mac")) {
@@ -102,7 +96,6 @@ public abstract class BasePage {
 
     public void scrollElementIntoView(By by){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", findElement(by));
-       // actions.scrollToElement(driver.findElement(by)).build().perform();
         log.debug("I'm scroll into view element :: " + by);
         waitVisibilityOfElement(by);
     }
@@ -248,6 +241,20 @@ public abstract class BasePage {
         for (int counter = 1; counter < 20; counter++) {
             log.debug("Wait element not exist count = " + counter);
             if (findElements(by).size() == 0) {
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                return true;
+            }
+            waitUntil(1);
+        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        return false;
+    }
+
+    public Boolean elementNotExist(List<WebElement> element) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        for (int counter = 1; counter < 20; counter++) {
+            log.debug("Wait element not exist count = " + counter);
+            if (element.size() == 0) {
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
                 return true;
             }
