@@ -3,6 +3,7 @@ package pageObjects.qaseSelenium;
 import entity.Project;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
@@ -14,9 +15,15 @@ public class ProjectPage extends BasePage {
     private final By inputDescription = By.id("description-area");
     private final By createBtn = By.cssSelector("[type='submit']");
     private final By deleteProjectBtn = By.cssSelector(".DRnS3P");
+    private final By flashMessagesError = By.className("OL6rtE");
+    private final By projectCodeError = By.xpath("//*[@id='project-code']/ancestor::div[@class='prXRTX']//*[@class='Y_SgpC']");
 
     private WebElement getRadiobutton(String value) {
         return findElement(By.xpath("//*[contains(@type, 'radio') and contains(@value,'"+ value +"')]"));
+    }
+
+    private WebElement getProjectName(String name) {
+        return findElement(By.xpath("//a[contains(text(),'"+ name +"')]"));
     }
 
     private WebElement getEllipseProjectForNameBtn(String name) {
@@ -77,6 +84,11 @@ public class ProjectPage extends BasePage {
         return this;
     }
 
+    public ProjectPage verifyThenProjectCreate(String name) {
+        Assert.assertTrue(getProjectName(name).isDisplayed());
+        return this;
+    }
+
     public ProjectPage deleteForName(String name) {
         click(getEllipseProjectForNameBtn(name));
         click(deleteProjectForNameBtn(name));
@@ -88,5 +100,18 @@ public class ProjectPage extends BasePage {
         elementNotExist(By.xpath("//a[contains(text(),'"+ name +"')]"));
         return this;
     }
+
+    public ProjectPage verifyFlashMessage() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(flashMessagesError));
+        Assert.assertEquals(getText(flashMessagesError),"Data is invalid." , "Title does not match as expected");
+        return this;
+    }
+
+    public ProjectPage verifyProjectCodeError(String error) {
+        waitVisibilityOfElement(projectCodeError);
+        Assert.assertEquals(getText(projectCodeError), error , "Title does not match as expected");
+        return this;
+    }
+
 
 }

@@ -3,13 +3,13 @@
 
 <suite name="QASE Web tests" thread-count="2" parallel="tests">
 
-    <test name=" Login tests set"  >
+    <test name=" Login tests set" >
         <classes>
             <class name="WEB_Tests.Login_Test"/>
         </classes>
     </test>
 
-    <test name=" Sign Up tests set">
+    <test name=" Sign Up tests set" >
         <classes>
             <class name="WEB_Tests.SignUp_Test"/>
         </classes>
@@ -27,9 +27,15 @@
         </classes>
     </test>
 
-    <test name=" Repository upload and download set" >
+    <test name=" Repository upload and download tests set"  >
         <classes>
             <class name="WEB_Tests.Repository_Test"/>
+        </classes>
+    </test>
+
+    <test name=" Create Project tests set" >
+        <classes>
+            <class name="WEB_Tests.Projects_Test"/>
         </classes>
     </test>
 
