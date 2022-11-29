@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "result"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "boolean"
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "total",
+        "filtered",
+        "count",
+        "entities"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "filtered": {
+          "type": "integer"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "entities": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "code",
+              "counts"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "counts": {
+                "type": "object",
+                "required": [
+                  "cases",
+                  "suites",
+                  "milestones",
+                  "runs",
+                  "defects"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "cases": {
+                    "type": "integer"
+                  },
+                  "suites": {
+                    "type": "integer"
+                  },
+                  "milestones": {
+                    "type": "integer"
+                  },
+                  "runs": {
+                    "type": "object",
+                    "required": [
+                      "total",
+                      "active"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "total": {
+                        "type": "integer"
+                      },
+                      "active": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "defects": {
+                    "type": "object",
+                    "required": [
+                      "total",
+                      "open"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "total": {
+                        "type": "integer"
+                      },
+                      "open": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

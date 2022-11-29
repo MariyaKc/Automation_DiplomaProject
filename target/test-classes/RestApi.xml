@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="QASE Rest Api tests" thread-count="2" parallel="tests">
+
+    <test name=" Project Rest API" >
+        <classes>
+            <class name="API_Tests.projectAPI.PostProjectAPI"/>
+            <class name="API_Tests.projectAPI.GetProjectAPI"/>
+            <class name="API_Tests.projectAPI.DeleteProjectAPI"/>
+        </classes>
+    </test>
+
+    <test name=" Suite Rest API" >
+        <classes>
+            <class name="API_Tests.suiteAPI.PostSuiteAPI"/>
+            <class name="API_Tests.suiteAPI.PatchSuiteAPI"/>
+            <class name="API_Tests.suiteAPI.GetSuiteAPI"/>
+            <class name="API_Tests.suiteAPI.DeleteSuiteAPI"/>
+        </classes>
+    </test>
+
+    <test name=" Case Rest API" >
+        <classes>
+            <class name="API_Tests.caseAPI.PostCaseAPI"/>
+            <class name="API_Tests.caseAPI.PatchCaseAPI"/>
+            <class name="API_Tests.caseAPI.GetCaseAPI"/>
+            <class name="API_Tests.caseAPI.DeleteCaseAPI"/>
+        </classes>
+    </test>
+</suite>

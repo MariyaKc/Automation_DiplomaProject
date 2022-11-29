@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "result"
+  ],
+  "properties": {
+    "status": {
+      "type": "boolean"
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "id",
+        "position",
+        "title",
+        "description",
+        "preconditions",
+        "postconditions",
+        "severity",
+        "priority",
+        "type",
+        "layer",
+        "is_flaky",
+        "behavior",
+        "automation",
+        "status",
+        "milestone_id",
+        "suite_id",
+        "links",
+        "custom_fields",
+        "attachments",
+        "steps_type",
+        "steps",
+        "params",
+        "member_id",
+        "project_id",
+        "tags",
+        "deleted",
+        "created",
+        "updated",
+        "created_at",
+        "updated_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "position": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "preconditions": {
+          "type": "string"
+        },
+        "postconditions": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "integer"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "integer"
+        },
+        "layer": {
+          "type": "integer"
+        },
+        "is_flaky": {
+          "type": "integer"
+        },
+        "behavior": {
+          "type": "integer"
+        },
+        "automation": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "milestone_id": {
+          "type": "null"
+        },
+        "suite_id": {
+          "type": "null"
+        },
+        "links": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {}
+        },
+        "custom_fields": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {}
+        },
+        "attachments": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {}
+        },
+        "steps_type": {
+          "type": "null"
+        },
+        "steps": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {}
+        },
+        "params": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {}
+        },
+        "member_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {}
+        },
+        "deleted": {
+          "type": "null"
+        },
+        "created": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
