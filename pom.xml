@@ -23,11 +23,11 @@
         <logging.log4j.version>2.19.0</logging.log4j.version>
         <dataformat.version>2.14.0</dataformat.version>
         <log4j.version>1.2.17</log4j.version>
-        <selenide.version>6.9.0</selenide.version>
+        <selenide.version>6.10.0</selenide.version>
         <cucumber.version>7.8.1</cucumber.version>
         <gson.version>2.10</gson.version>
-        <rest.assured.version>5.2.0</rest.assured.version>
-        <rest.json.shema.version>5.2.0</rest.json.shema.version>
+        <rest.assured.version>5.3.0</rest.assured.version>
+        <rest.json.shema.version>5.3.0</rest.json.shema.version>
         <suiteXml/>
     </properties>
 
@@ -130,7 +130,7 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${rest.assured.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -148,7 +148,7 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>5.2.0</version>
+            <version>5.3.0</version>
             <scope>compile</scope>
         </dependency>
 
