@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Milestone tests by Cucumber" >
+    <listeners>
+        <listener class-name="testNgUtils.Listener"/>
+    </listeners>
+
+    <test name="Create, sort and delete Milestones tests" >
+        <classes>
+            <class name="WEB_Tests.MilestoneByCucumber"/>
+        </classes>
+    </test>
+</suite>

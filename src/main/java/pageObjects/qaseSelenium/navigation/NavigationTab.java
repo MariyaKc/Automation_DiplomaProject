@@ -14,7 +14,7 @@ public class NavigationTab extends BasePage {
 
     public NavigationTab clickNavigationItem(String linkText) {
         log.debug("Click navigation item");
-        getNavigationLink(linkText).click();
+        retryingFindClick(getNavigationLink(linkText));
         return this;
     }
 

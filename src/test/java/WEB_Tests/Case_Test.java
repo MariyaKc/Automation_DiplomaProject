@@ -7,7 +7,6 @@ import entity.Project;
 import javaFaker.CaseFaker;
 import javaFaker.ProjectFaker;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.baseObjects.BaseTest;

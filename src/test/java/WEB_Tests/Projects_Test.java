@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import pageObjects.baseObjects.BaseTest;
 import pageObjects.qaseSelenium.ProjectPage;
 import pageObjects.qaseSelenium.navigation.NavigationTab;
+import testNgUtils.Retry;
 
 
 public class Projects_Test extends BaseTest {
@@ -18,7 +19,7 @@ public class Projects_Test extends BaseTest {
         get(LoginSteps.class).login();
     }
 
-    @Test(description = "Test for create new project with all fields and delete by name", priority = 1)
+    @Test(description = "Test for create new project with all fields and delete by name",retryAnalyzer = Retry.class)
     public void createAndDeleteProjectsTest() {
             ProjectFaker projectFaker = new ProjectFaker();
             Project newProject = projectFaker.getProject();
@@ -28,10 +29,10 @@ public class Projects_Test extends BaseTest {
             get(ProjectPage.class).deleteForName(newProject.getTitle()).verifyThenProjectWasDeleted(newProject.getTitle()).createNewProject();
     }
 
-    @Test(description = "Test for boundary values in filed 'Project code' when creating a new project", dataProvider = "value data", dependsOnMethods = "createAndDeleteProjectsTest")
-    public void boundaryValuesTest(String value, String error) {
+    @Test(description = "Test for boundary values in filed 'Project code' when creating a new project", retryAnalyzer = Retry.class, dataProvider = "value data", dependsOnMethods = "createAndDeleteProjectsTest")
+    public void boundaryValuesTest(String name, String value, String error) {
         Project project = new Project.ProjectBuilder()
-                .withTitle("BoundaryValueProject")
+                .withTitle(name)
                 .withCode(value)
                 .withDescription("Description for new test project")
                 .withAccess("public").create();
@@ -42,19 +43,19 @@ public class Projects_Test extends BaseTest {
                     .verifyProjectCodeError(error);
         } else {
             get(NavigationTab.class).clickNavigationItem("Projects");
-            get(ProjectPage.class).verifyThenProjectCreate(project.getTitle()).deleteForName(project.getTitle()).verifyThenProjectWasDeleted("BoundaryValueProject").createNewProject();
+            get(ProjectPage.class).verifyThenProjectCreate(project.getTitle()).deleteForName(project.getTitle()).verifyThenProjectWasDeleted(project.getTitle()).createNewProject();
         }
     }
 
     @DataProvider(name = "value data")
     public Object[][] data() {
         return new Object[][]{
-                {"1","The code must be at least 2 characters."},
-                {"12",""},
-                {"123",""},
-                {"123456789",""},
-                {"1234567890","The code may not be greater than 10 characters."},
-                {"12345678901","The code may not be greater than 10 characters."},
+                {"Value0", "1", "The code must be at least 2 characters."},
+                {"Value1", "12", ""},
+                {"Value2", "123", ""},
+                {"Value3", "123456789", ""},
+                {"Value4", "1234567890", "The code may not be greater than 10 characters."},
+                {"Value5", "12345678901", "The code may not be greater than 10 characters."},
         };
     }
 }

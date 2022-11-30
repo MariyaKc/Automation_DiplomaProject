@@ -117,6 +117,22 @@ public abstract class BasePage {
         return result;
     }
 
+    protected boolean retryingFindClick(WebElement by) {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                log.debug("I'm click by :: " + by);
+                by.click();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException e) {
+            }
+            attempts++;
+        }
+        return result;
+    }
+
     protected void click(WebElement webElement) {
         log.debug("I'm click by :: " + webElement);
         new UIElement(driver, wait, webElement).click();

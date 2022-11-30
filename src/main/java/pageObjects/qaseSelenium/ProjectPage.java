@@ -104,12 +104,14 @@ public class ProjectPage extends BasePage {
     public ProjectPage verifyFlashMessage() {
         wait.until(ExpectedConditions.presenceOfElementLocated(flashMessagesError));
         Assert.assertEquals(getText(flashMessagesError),"Data is invalid." , "Title does not match as expected");
+        elementNotExist(flashMessagesError);
         return this;
     }
 
     public ProjectPage verifyProjectCodeError(String error) {
         waitVisibilityOfElement(projectCodeError);
         Assert.assertEquals(getText(projectCodeError), error , "Title does not match as expected");
+        elementNotExist(projectCodeError);
         return this;
     }
 
