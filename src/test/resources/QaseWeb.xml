@@ -39,12 +39,6 @@
         </classes>
     </test>
 
-    <test name=" Boundary value tests set" enabled="false" >
-        <classes>
-            <class name="WEB_Tests.BoundaryValue_Test"/>
-        </classes>
-    </test>
-
     <test name=" Create and Delete Test Case tests set" >
         <classes>
             <class name="WEB_Tests.Case_Test"/>
