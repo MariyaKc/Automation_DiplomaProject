@@ -2,6 +2,7 @@ package pageObjects.qaseSelenium;
 
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
@@ -14,11 +15,26 @@ public class RepositoryPage extends BasePage {
     private final By ellipsisBtn = By.className("fa-ellipsis-h");
     private final By importDataBtn = By.cssSelector(".fa-download");
     private final By exportDataBtn = By.cssSelector(".fa-upload");
+    private final By createNewCase =By.xpath("//span[contains(text(),' new case')]");
     private final By chooseFile = By.xpath("//input[@type='file']");
     private final By importBtn = By.xpath("//*[@id='modals']//button[contains(@class,'tscvgR')]");
     private final By exportBtn = By.xpath("//button[contains(@class,'btn-primary')]");
     private final By flashMessage = By.className("OL6rtE");
     private final By suiteTitle = By.className("FhcTGD");
+    private final By selectAllCases = By.xpath("//div[@class='ioDlVH']//input");
+    private final By deleteCaseBtn = By.xpath("//button[@class='btn btn-secondary me-2']");
+    private final By inputConfirm = By.name("confirm");
+    private final By confirmDeleteBtn = By.xpath("//span[@class='UdZcu9' and contains(text(),'Delete')]");
+
+
+
+    private WebElement getCaseName(String name){
+        return findElement(By.xpath("//div[contains(text(),'"+name+"')]/parent::div//input"));
+    }
+
+    private WebElement deleteSuiteForNameBtn(String name){
+        return findElement(By.xpath("//span[text()='"+name+"']//following::i[contains(@class,'fa-trash')]"));
+    }
 
     public RepositoryPage verifyPageTitle() {
         Assert.assertTrue(getText(title).contains("repository"), "Title does not match as expected");
@@ -74,5 +90,32 @@ public class RepositoryPage extends BasePage {
         return this;
     }
 
+    public RepositoryPage createCase() {
+        click(createNewCase);
+        return this;
+    }
+
+    public RepositoryPage deleteAllCases() {
+        clickWithJS(selectAllCases);
+        click(deleteCaseBtn);
+        enter(inputConfirm,"CONFIRM");
+        click(confirmDeleteBtn);
+        return this;
+    }
+
+    public RepositoryPage deleteCaseByName(String caseName) {
+        clickWithJS(getCaseName(caseName));
+        click(deleteCaseBtn);
+        enter(inputConfirm,"CONFIRM");
+        click(confirmDeleteBtn);
+        return this;
+    }
+
+    public RepositoryPage verifyFlashMessageDelete() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(flashMessage));
+        Assert.assertTrue(getText(flashMessage).contains("successfully deleted") , "Title does not match as expected");
+        elementNotExist(flashMessage);
+        return this;
+    }
 
 }

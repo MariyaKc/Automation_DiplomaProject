@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="QASE Web tests" thread-count="2" parallel="tests">
+<suite name="QASE Web tests" thread-count="4" parallel="tests">
 
     <test name=" Login tests set" >
         <classes>
@@ -33,9 +33,15 @@
         </classes>
     </test>
 
-    <test name=" Create Project tests set" >
+    <test name=" Create and Delete Project tests set" >
         <classes>
             <class name="WEB_Tests.Projects_Test"/>
+        </classes>
+    </test>
+
+    <test name=" Create and Delete Test Case tests set" >
+        <classes>
+            <class name="WEB_Tests.Case_Test"/>
         </classes>
     </test>
 

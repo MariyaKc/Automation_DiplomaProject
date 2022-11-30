@@ -21,6 +21,11 @@ public class ProjectSteps extends BasePage {
         return this;
     }
 
+    @Step("Create project")
+    public ProjectSteps createProjectWithJavaFaker (Project project){
+        new ProjectPage().createNewProject().enterData(project).clickCreate();
+        return this;
+    }
 
 
 }
