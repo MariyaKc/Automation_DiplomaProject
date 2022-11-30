@@ -64,7 +64,7 @@ public class Case_Test extends BaseTest {
         get(RepositoryPage.class).deleteCaseByName("AutomationQA").verifyFlashMessageDelete();
     }
 
-    @AfterTest
+    @AfterClass
     public void post(){
         get(NavigationTab.class).clickNavigationItem("Projects");
         get(ProjectPage.class).deleteForName(newProject.getTitle());

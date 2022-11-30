@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="QASE Web tests" thread-count="4" parallel="tests">
+<suite name="QASE Web tests" thread-count="7" parallel="tests">
 
     <test name=" Login tests set" >
         <classes>
@@ -48,6 +48,12 @@
     <test name=" Create and Delete Suite tests set" >
         <classes>
             <class name="WEB_Tests.Suite_Test"/>
+        </classes>
+    </test>
+
+    <test name=" Create and Delete Defect tests set" >
+        <classes>
+            <class name="WEB_Tests.Defect_Test"/>
         </classes>
     </test>
 

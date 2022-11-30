@@ -3,6 +3,7 @@ import WEB_Tests.Steps.LoginSteps;
 import WEB_Tests.Steps.ProjectSteps;
 import entity.Suite;
 import javaFaker.SuiteFaker;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -46,7 +47,7 @@ public class Suite_Test extends BaseTest {
         get(RepositoryPage.class).deleteSuiteByName("Suite").verifyFlashMessageDelete();
     }
 
-    @AfterTest
+    @AfterClass
     public void post(){
         get(NavigationTab.class).clickNavigationItem("Projects");
         get(ProjectPage.class).deleteForName("ProjectWithSuite");
