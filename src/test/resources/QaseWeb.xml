@@ -45,4 +45,10 @@
         </classes>
     </test>
 
+    <test name=" Create and Delete Suite tests set" >
+        <classes>
+            <class name="WEB_Tests.Suite_Test"/>
+        </classes>
+    </test>
+
 </suite>

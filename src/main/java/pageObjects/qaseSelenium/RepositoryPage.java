@@ -16,11 +16,13 @@ public class RepositoryPage extends BasePage {
     private final By importDataBtn = By.cssSelector(".fa-download");
     private final By exportDataBtn = By.cssSelector(".fa-upload");
     private final By createNewCase =By.xpath("//span[contains(text(),' new case')]");
+    private final By createNewSuite =By.id("create-suite-button");
     private final By chooseFile = By.xpath("//input[@type='file']");
     private final By importBtn = By.xpath("//*[@id='modals']//button[contains(@class,'tscvgR')]");
     private final By exportBtn = By.xpath("//button[contains(@class,'btn-primary')]");
     private final By flashMessage = By.className("OL6rtE");
     private final By suiteTitle = By.className("FhcTGD");
+    private final By deleteSuiteBtn = By.xpath("//i[contains(@class,'fa-trash')]");
     private final By selectAllCases = By.xpath("//div[@class='ioDlVH']//input");
     private final By deleteCaseBtn = By.xpath("//button[@class='btn btn-secondary me-2']");
     private final By inputConfirm = By.name("confirm");
@@ -35,6 +37,7 @@ public class RepositoryPage extends BasePage {
     private WebElement deleteSuiteForNameBtn(String name){
         return findElement(By.xpath("//span[text()='"+name+"']//following::i[contains(@class,'fa-trash')]"));
     }
+
 
     public RepositoryPage verifyPageTitle() {
         Assert.assertTrue(getText(title).contains("repository"), "Title does not match as expected");
@@ -107,6 +110,25 @@ public class RepositoryPage extends BasePage {
         clickWithJS(getCaseName(caseName));
         click(deleteCaseBtn);
         enter(inputConfirm,"CONFIRM");
+        click(confirmDeleteBtn);
+        return this;
+    }
+
+    public RepositoryPage createSuite() {
+        click(createNewSuite);
+        return this;
+    }
+
+    public RepositoryPage deleteSuiteForCount(int countDelete) {
+        for(int i=1; i<=countDelete; i++) {
+            retryingFindClick(deleteSuiteBtn);
+            click(confirmDeleteBtn);
+        }
+        return this;
+    }
+
+    public RepositoryPage deleteSuiteByName(String name) {
+        click(deleteSuiteForNameBtn(name));
         click(confirmDeleteBtn);
         return this;
     }
