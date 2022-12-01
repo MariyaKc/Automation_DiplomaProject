@@ -30,8 +30,8 @@ Link to **[Check List](https://docs.google.com/spreadsheets/d/1nVYVrNgMXWsjxFZno
 #### Tools & Frameworks:
 
 * [TestNG](https://testng.org/) - Framework
-* [Selenium](https://www.selenium.dev/) - Framework
-* [Selenide](https://selenide.org) - Framework
+* [Selenium](https://www.selenium.dev/) - Library
+* [Selenide](https://selenide.org) - Library
 * [Cucumber](https://cucumber.io) - Framework implementing the BDD approach
 * [REST Assured](https://rest-assured.io/) - for API Testing
 * [GSON](https://github.com/google/gson) - library that allows to convert JSON objects to Java objects and vice versa
