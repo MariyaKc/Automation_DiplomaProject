@@ -107,11 +107,11 @@ For example ::
 
 In the window that opens, specify the **properties** to run, for example:
 
-![](../../qase1.png)
+<img width="500" alt="qase1" src="https://user-images.githubusercontent.com/111488221/205022615-cc42dcfa-7c08-4ba0-a0c6-eafeb2997d93.png">
 
 After that click to run suite::
 
- ![](../../Снимок экрана 2022-12-01 в 11.46.05.png)
+<img width="215" alt="Снимок экрана 2022-12-01 в 11 46 05" src="https://user-images.githubusercontent.com/111488221/205022706-5deab2ba-cd02-4c68-9623-ade3bb775a0f.png">
 
 * **LOGS ::**
 *
@@ -139,9 +139,9 @@ The suite with the tests to run can be changed in the **Dockerfile**.
 ---
 ## Jenkins & Allure Reports
 #### Report for WEB Tests ::
-![](../../../Downloads/WEB.gif)
+![WEB](https://user-images.githubusercontent.com/111488221/205022897-ee8c039f-7a42-4c0b-ad9c-801aff7c9453.gif)
 
 
 #### Report for API Tests ::
+![API](https://user-images.githubusercontent.com/111488221/205023481-3721002a-534b-4eb5-9dbb-d42c363b1146.gif)
 
-![](../../../Downloads/WEB.gif)
